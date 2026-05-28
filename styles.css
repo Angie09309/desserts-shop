@@ -3,3 +3,13 @@
   justify-content: space-between;
   gap: 30px;
 }
+
+.products-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.products-section h1 {
+  grid-column: 1/-1;
+}
