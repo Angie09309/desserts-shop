@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   gap: 30px;
-  max-width: 1700px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -25,4 +25,23 @@
 
 .cart-section {
   width: 30%;
+}
+
+.product-card button {
+  display: flex;
+  margin: 0 auto;
+  width: 160px;
+  height: 45px;
+  justify-content: center;
+  align-items: center;
+  margin-top: -22px;
+  border-radius: 25px;
+  background-color: #ffffff;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: flex-start;
 }
