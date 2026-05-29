@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1700px;
+  margin: 0 auto;
+}
+
+.products-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 70%;
+}
+
+.products-section h1 {
+  grid-column: 1/-1;
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.cart-section {
+  width: 30%;
+}
