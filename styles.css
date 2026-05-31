@@ -44,6 +44,7 @@ body {
   max-width: 100%;
   height: auto;
   border-radius: 12px;
+  border: 2px solid transparent;
 }
 
 .cart-section {
@@ -114,4 +115,13 @@ body {
 
 .cart-section p {
   color: var(--rose-500);
+}
+
+.product-card button:hover {
+  cursor: pointer;
+  color: var(--color-primary-red);
+  border: 1px solid var(--color-primary-red);
+}
+.product-card img:hover {
+  border: 2px solid var(--rose-400);
 }
