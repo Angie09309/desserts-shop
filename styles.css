@@ -130,6 +130,22 @@ body {
   border: 2px solid var(--rose-400);
 }
 
+.quantity-counter {
+  background-color: chocolate;
+  width: 160px;
+  border-radius: 40px;
+  display: none;
+}
+
+.quantity-counter.active {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-to-cart-btn.inactive {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .products-section {
     grid-template-columns: repeat(1, 1fr);
@@ -141,6 +157,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 24px;
   }
 
   .cart-section {
@@ -149,5 +166,6 @@ body {
 
   .product-card {
     width: 100%;
+    align-items: stretch;
   }
 }
