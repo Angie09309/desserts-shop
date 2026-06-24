@@ -17,7 +17,13 @@ cartButtons.forEach(function (boton) {
     });
 
     botonMenos.addEventListener("click", (e) => {
-      botonNumero.innerText = Number(botonNumero.innerText) - 1;
+      if (Number(botonNumero.innerText) > 1) {
+        botonNumero.innerText = Number(botonNumero.innerText) - 1;
+      } else {
+        botonNumero.innerText = "0";
+        contadorChocolate.classList.remove("active");
+        botonActivo.classList.remove("inactive");
+      }
     });
   });
 });
