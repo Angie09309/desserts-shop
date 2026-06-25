@@ -8,22 +8,37 @@ cartButtons.forEach(function (boton) {
     let contadorChocolate = botonActivo.nextElementSibling;
     contadorChocolate.classList.add("active");
 
-    const botonMas = contadorChocolate.querySelector(".increment-btn");
     const botonNumero = contadorChocolate.querySelector(".quantity-value");
-    const botonMenos = contadorChocolate.querySelector(".decrement-btn");
+    botonNumero.innerText = "1";
+  });
+});
 
-    botonMas.addEventListener("click", (e) => {
-      botonNumero.innerText = Number(botonNumero.innerText) + 1;
-    });
+const botonMas = document.querySelectorAll(".increment-btn");
 
-    botonMenos.addEventListener("click", (e) => {
-      if (Number(botonNumero.innerText) > 1) {
-        botonNumero.innerText = Number(botonNumero.innerText) - 1;
-      } else {
-        botonNumero.innerText = "0";
-        contadorChocolate.classList.remove("active");
-        botonActivo.classList.remove("inactive");
-      }
-    });
+botonMas.forEach((botonSuma) => {
+  botonSuma.addEventListener("click", (e) => {
+    const tarjeta = e.target.closest(".product-card");
+
+    const botonNumero = tarjeta.querySelector(".quantity-value");
+
+    botonNumero.innerText = Number(botonNumero.innerText) + 1;
+  });
+});
+
+const botonMenos = document.querySelectorAll(".decrement-btn");
+
+botonMenos.forEach((botonResta) => {
+  botonResta.addEventListener("click", (e) => {
+    const card = e.target.closest(".product-card");
+
+    const botonNum = card.querySelector(".quantity-value");
+
+    if (Number(botonNum.innerText) > 1) {
+      botonNum.innerText = Number(botonNum.innerText) - 1;
+    } else {
+      botonNum.innerText = "0";
+      card.querySelector(".quantity-counter").classList.remove("active");
+      card.querySelector(".add-to-cart-btn").classList.remove("inactive");
+    }
   });
 });
