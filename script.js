@@ -42,3 +42,15 @@ botonMenos.forEach((botonResta) => {
     }
   });
 });
+
+function actualizarTotalCarrito() {
+  let sumaTotal = 0;
+  numeros = document.querySelectorAll(".quantity-value");
+
+  numeros.forEach((sumaNumeros) => {
+    sumaTotal = sumaTotal + Number(sumaNumeros.innerText);
+  });
+
+  numeroTotal = document.querySelector(".cart-total-quantity");
+  numeroTotal.innerText = sumaTotal;
+}
