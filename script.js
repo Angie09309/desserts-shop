@@ -1,3 +1,5 @@
+let carrito = [];
+
 const cartButtons = document.querySelectorAll(".add-to-cart-btn");
 
 cartButtons.forEach(function (boton) {
@@ -10,6 +12,16 @@ cartButtons.forEach(function (boton) {
 
     const botonNumero = contadorChocolate.querySelector(".quantity-value");
     botonNumero.innerText = "1";
+    const tarjetas = botonActivo.closest(".product-card");
+    const nombreProducto = tarjetas.querySelector("h2").innerText;
+    const precioProducto = tarjetas.querySelector("p").innerText;
+
+    carrito.push({
+      name: nombreProducto,
+      price: precioProducto,
+      quantity: 1,
+    });
+console.log("Así va mi carrito:", carrito);
     actualizarTotalCarrito();
   });
 });
