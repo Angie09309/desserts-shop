@@ -10,6 +10,7 @@ cartButtons.forEach(function (boton) {
 
     const botonNumero = contadorChocolate.querySelector(".quantity-value");
     botonNumero.innerText = "1";
+    actualizarTotalCarrito();
   });
 });
 
@@ -22,6 +23,7 @@ botonMas.forEach((botonSuma) => {
     const botonNumero = tarjeta.querySelector(".quantity-value");
 
     botonNumero.innerText = Number(botonNumero.innerText) + 1;
+    actualizarTotalCarrito();
   });
 });
 
@@ -35,10 +37,12 @@ botonMenos.forEach((botonResta) => {
 
     if (Number(botonNum.innerText) > 1) {
       botonNum.innerText = Number(botonNum.innerText) - 1;
+      actualizarTotalCarrito();
     } else {
       botonNum.innerText = "0";
       card.querySelector(".quantity-counter").classList.remove("active");
       card.querySelector(".add-to-cart-btn").classList.remove("inactive");
+      actualizarTotalCarrito();
     }
   });
 });
