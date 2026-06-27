@@ -21,7 +21,7 @@ cartButtons.forEach(function (boton) {
       price: precioProducto,
       quantity: 1,
     });
-    console.log("Así va mi carrito:", carrito);
+
     actualizarTotalCarrito();
   });
 });
@@ -54,14 +54,20 @@ const botonMenos = document.querySelectorAll(".decrement-btn");
 botonMenos.forEach((botonResta) => {
   botonResta.addEventListener("click", (e) => {
     const card = e.target.closest(".product-card");
-
     const botonNum = card.querySelector(".quantity-value");
+
+    const nombreProducto = card.querySelector("h2").innerText;
+    let productoExistente = carrito.find(
+      (item) => item.name === nombreProducto,
+    );
 
     if (Number(botonNum.innerText) > 1) {
       botonNum.innerText = Number(botonNum.innerText) - 1;
+      productoExistente.quantity = productoExistente.quantity - 1;
       actualizarTotalCarrito();
     } else {
       botonNum.innerText = "0";
+      carrito = carrito.filter((item) => item.name !== nombreProducto);
       card.querySelector(".quantity-counter").classList.remove("active");
       card.querySelector(".add-to-cart-btn").classList.remove("inactive");
       actualizarTotalCarrito();
