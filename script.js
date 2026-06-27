@@ -85,4 +85,32 @@ function actualizarTotalCarrito() {
 
   numeroTotal = document.querySelector(".cart-total-quantity");
   numeroTotal.innerText = sumaTotal;
+  renderizarCarrito();
+}
+
+function renderizarCarrito() {
+  const cartItems = document.querySelector(".cart-items-container");
+  const cartInfo = document.querySelector(".empty-cart-state");
+
+  cartItems.innerHTML = "";
+
+  if (carrito.length === 0) {
+    cartInfo.style.display = "block";
+  } else {
+    cartInfo.style.display = "none";
+  }
+
+  carrito.forEach((item) => {
+    cartItems.innerHTML =
+      cartItems.innerHTML +
+      `
+    <div class="cart-item">
+      <h3>${item.name}</h3>
+      <p>
+        <span>${item.quantity}x</span>
+        <span>$ ${item.price}</span>
+      </p>
+    </div>
+  `;
+  });
 }
