@@ -21,7 +21,7 @@ cartButtons.forEach(function (boton) {
       price: precioProducto,
       quantity: 1,
     });
-console.log("Así va mi carrito:", carrito);
+    console.log("Así va mi carrito:", carrito);
     actualizarTotalCarrito();
   });
 });
@@ -35,6 +35,16 @@ botonMas.forEach((botonSuma) => {
     const botonNumero = tarjeta.querySelector(".quantity-value");
 
     botonNumero.innerText = Number(botonNumero.innerText) + 1;
+
+    const nombreProducto = tarjeta.querySelector("h2").innerText;
+    let productoExistente = carrito.find(
+      (item) => item.name === nombreProducto,
+    );
+
+    if (productoExistente) {
+      productoExistente.quantity = productoExistente.quantity + 1;
+    }
+
     actualizarTotalCarrito();
   });
 });
