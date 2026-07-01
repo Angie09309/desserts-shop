@@ -114,18 +114,18 @@ function renderizarCarrito() {
     const precioFormateado = item.price.toLocaleString("es-CO");
     cartItems.innerHTML =
       cartItems.innerHTML +
-      `
-    <div class="cart-item">
-      <h3>${item.name}</h3>
-      <p>
-        <span>${item.quantity}x</span>
-        <span>$ ${precioFormateado}</span>
-      </p>
-     <button class="remove-item-btn" data-name="${item.name}">
-     <img src="./assets/images/icon-remove-item.svg">
-    </button>
-    </div>
-  `;
+      `<div class="cart-item">
+        <div class="cart-item-details">
+          <h3>${item.name}</h3>
+          <p>
+            <span>${item.quantity}x</span>
+            <span>$ ${precioFormateado}</span>
+          </p>
+        </div>
+        <button class="remove-item-btn" data-name="${item.name}">
+          <img src="./assets/images/icon-remove-item.svg" />
+        </button>
+      </div>`;
   });
 
   const botonesEliminar = document.querySelectorAll(".remove-item-btn");

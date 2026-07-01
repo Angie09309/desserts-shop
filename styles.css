@@ -175,6 +175,44 @@ body {
   color: var(--color-primary-red);
 }
 
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--rose-100);
+  padding-bottom: 16px;
+}
+
+.cart-item p {
+  display: flex;
+  gap: 12px;
+}
+
+.cart-item p span:first-child {
+  color: var(--color-primary-red);
+  font-weight: 700;
+}
+
+.cart-item p span:last-child {
+  color: var(--rose-500);
+}
+
+.cart-item-details {
+  padding-right: 20px;
+}
+
+.remove-item-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 1px solid var(--rose-400);
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .products-section {
     grid-template-columns: repeat(1, 1fr);
