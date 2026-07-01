@@ -14,7 +14,8 @@ cartButtons.forEach(function (boton) {
     botonNumero.innerText = "1";
     const tarjetas = botonActivo.closest(".product-card");
     const nombreProducto = tarjetas.querySelector("h2").innerText;
-    const precioProducto = tarjetas.querySelector("p").innerText;
+    const precioTexto = tarjetas.querySelector("p").innerText;
+    const precioProducto = parseInt(precioTexto.replace(/\./g, ""), 10);
 
     carrito.push({
       name: nombreProducto,
@@ -77,14 +78,23 @@ botonMenos.forEach((botonResta) => {
 
 function actualizarTotalCarrito() {
   let sumaTotal = 0;
+  let dineroTotal = 0;
+
   numeros = document.querySelectorAll(".quantity-value");
 
   numeros.forEach((sumaNumeros) => {
     sumaTotal = sumaTotal + Number(sumaNumeros.innerText);
   });
 
+  carrito.forEach((item) => {
+    dineroTotal = dineroTotal + item.quantity * item.price;
+  });
+
   numeroTotal = document.querySelector(".cart-total-quantity");
   numeroTotal.innerText = sumaTotal;
+
+  priceTotal = document.querySelector(".cart-total-price");
+  priceTotal.innerText = "$" + dineroTotal.toLocaleString("es-CO");
   renderizarCarrito();
 }
 
@@ -101,6 +111,7 @@ function renderizarCarrito() {
   }
 
   carrito.forEach((item) => {
+    const precioFormateado = item.price.toLocaleString("es-CO");
     cartItems.innerHTML =
       cartItems.innerHTML +
       `
@@ -108,7 +119,7 @@ function renderizarCarrito() {
       <h3>${item.name}</h3>
       <p>
         <span>${item.quantity}x</span>
-        <span>$ ${item.price}</span>
+        <span>$ ${precioFormateado}</span>
       </p>
     </div>
   `;
