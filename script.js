@@ -121,7 +121,21 @@ function renderizarCarrito() {
         <span>${item.quantity}x</span>
         <span>$ ${precioFormateado}</span>
       </p>
+     <button class="remove-item-btn" data-name="${item.name}">
+     <img src="./assets/images/icon-remove-item.svg">
+    </button>
     </div>
   `;
+  });
+
+  const botonesEliminar = document.querySelectorAll(".remove-item-btn");
+
+  botonesEliminar.forEach((boton) => {
+    boton.addEventListener("click", (e) => {
+      const nameCokie = e.currentTarget.getAttribute("data-name");
+
+      carrito = carrito.filter((item) => item.name !== nameCokie);
+      actualizarTotalCarrito();
+    });
   });
 }
