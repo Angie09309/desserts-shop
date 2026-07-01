@@ -135,6 +135,19 @@ function renderizarCarrito() {
       const nameCokie = e.currentTarget.getAttribute("data-name");
 
       carrito = carrito.filter((item) => item.name !== nameCokie);
+
+      const encabezados = document.querySelectorAll(".product-card h2");
+
+      encabezados.forEach((texto) => {
+        if (texto.innerText === nameCokie) {
+          const tarjeta = texto.closest(".product-card");
+          tarjeta.querySelector(".quantity-value").innerText = "0";
+          tarjeta.querySelector(".quantity-counter").classList.remove("active");
+          tarjeta
+            .querySelector(".add-to-cart-btn")
+            .classList.remove("inactive");
+        }
+      });
       actualizarTotalCarrito();
     });
   });
