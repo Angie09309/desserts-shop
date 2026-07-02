@@ -112,6 +112,10 @@ function renderizarCarrito() {
 
   carrito.forEach((item) => {
     const precioFormateado = item.price.toLocaleString("es-CO");
+    const subtotalFormateado = (item.quantity * item.price).toLocaleString(
+      "es-CO",
+    );
+
     cartItems.innerHTML =
       cartItems.innerHTML +
       `<div class="cart-item">
@@ -119,7 +123,8 @@ function renderizarCarrito() {
           <h3>${item.name}</h3>
           <p>
             <span>${item.quantity}x</span>
-            <span>$ ${precioFormateado}</span>
+            <span>@ ${precioFormateado}</span>
+            <span>$ ${subtotalFormateado}</span>
           </p>
         </div>
         <button class="remove-item-btn" data-name="${item.name}">
