@@ -274,6 +274,33 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.modal-content {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.btn-start-new-order {
+  width: 100%;
+  color: #ffffff;
+  background-color: var(--color-primary-red);
+  font-weight: 700;
+  padding: 16px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-start-new-order:hover {
+  filter: brightness(85%);
+}
+
 @media (max-width: 768px) {
   .products-section {
     grid-template-columns: repeat(1, 1fr);
