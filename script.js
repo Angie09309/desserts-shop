@@ -177,18 +177,26 @@ btnConfirmarOrden.addEventListener("click", () => {
     );
 
     listaPostresHtml += `  
-      <div>
-        <div>
-          <h3>${item.name}</h3>
-          <p>
-            <span>${item.quantity} x</span>
-            <span>@ ${precioFormateado}</span>
-            <span>$ ${subtotalFormateado}</span>
-          </p>
-          <img src="${item.imagen}"/>
-        </div>
-      </div>
-   `;
+  <div class="modal-item">
+    <img src="${item.imagen}" alt="${item.name}" class="modal-thumbnail"/>
+    <div class="modal-item-details">
+      <h3>${item.name}</h3>
+      <p>
+        <span class="modal-quantity">${item.quantity}x</span>
+        <span class="modal-price">@ $${precioFormateado}</span>
+        <span class="modal-subtotal">$${subtotalFormateado}</span>
+      </p>
+    </div>
+  </div>
+`;
   });
   resumenModal.innerHTML = listaPostresHtml;
+});
+
+const btnNewOrder = document.querySelector(".btn-start-new-order");
+
+btnNewOrder.addEventListener("click", () => {
+  capaModal.classList.remove("is-active");
+  carrito = [];
+  renderizarCarrito();
 });
