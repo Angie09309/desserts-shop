@@ -16,11 +16,14 @@ cartButtons.forEach(function (boton) {
     const nombreProducto = tarjetas.querySelector("h2").innerText;
     const precioTexto = tarjetas.querySelector("p").innerText;
     const precioProducto = parseInt(precioTexto.replace(/\./g, ""), 10);
+    const imagenProducto = tarjetas.querySelector("img").getAttribute("src");
+    const iamgenChiquita = imagenProducto.replace("desktop", "thumbnail");
 
     carrito.push({
       name: nombreProducto,
       price: precioProducto,
       quantity: 1,
+      imagen: iamgenChiquita,
     });
 
     actualizarTotalCarrito();
@@ -157,3 +160,35 @@ function renderizarCarrito() {
     });
   });
 }
+
+const btnConfirmarOrden = document.querySelector(".btn-confirm-order");
+const capaModal = document.querySelector(".modal-overlay");
+const resumenModal = document.querySelector(".modal-orders-summary");
+
+btnConfirmarOrden.addEventListener("click", () => {
+  capaModal.classList.add("is-active");
+
+  let listaPostresHtml = "";
+
+  carrito.forEach((item) => {
+    const precioFormateado = item.price.toLocaleString("es-CO");
+    const subtotalFormateado = (item.quantity * item.price).toLocaleString(
+      "es-CO",
+    );
+
+    listaPostresHtml += `  
+      <div>
+        <div>
+          <h3>${item.name}</h3>
+          <p>
+            <span>${item.quantity} x</span>
+            <span>@ ${precioFormateado}</span>
+            <span>$ ${subtotalFormateado}</span>
+          </p>
+          <img src="${item.imagen}"/>
+        </div>
+      </div>
+   `;
+  });
+  resumenModal.innerHTML = listaPostresHtml;
+});
