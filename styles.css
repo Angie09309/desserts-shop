@@ -365,6 +365,26 @@ body {
   border-bottom: none;
 }
 
+.modal-total-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin-top: 24px;
+  padding-top: 16px;
+}
+
+.modal-total-container p {
+  font-size: 18px;
+  color: #260f08;
+}
+
+.modal-total-container strong {
+  font-weight: 700;
+  font-size: 24px;
+  color: #260f08;
+}
+
 @media (max-width: 768px) {
   .products-section {
     grid-template-columns: repeat(1, 1fr);

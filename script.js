@@ -82,22 +82,18 @@ botonMenos.forEach((botonResta) => {
 function actualizarTotalCarrito() {
   let sumaTotal = 0;
   let dineroTotal = 0;
-
-  numeros = document.querySelectorAll(".quantity-value");
-
-  numeros.forEach((sumaNumeros) => {
-    sumaTotal = sumaTotal + Number(sumaNumeros.innerText);
-  });
+  let cantidadProductos = 0;
 
   carrito.forEach((item) => {
-    dineroTotal = dineroTotal + item.quantity * item.price;
+    cantidadProductos += item.quantity;
+    dineroTotal += item.quantity * item.price;
   });
 
-  numeroTotal = document.querySelector(".cart-total-quantity");
-  numeroTotal.innerText = sumaTotal;
+  const etiquetaCantidad = document.querySelector(".cart-total-quantity");
+  etiquetaCantidad.innerText = cantidadProductos;
 
-  priceTotal = document.querySelector(".cart-total-price");
-  priceTotal.innerText = "$" + dineroTotal.toLocaleString("es-CO");
+  const etiquetaPrecio = document.querySelector(".cart-total-price");
+  etiquetaPrecio.innerText = "$" + dineroTotal.toLocaleString("es-CO");
   renderizarCarrito();
 }
 
@@ -166,7 +162,11 @@ const capaModal = document.querySelector(".modal-overlay");
 const resumenModal = document.querySelector(".modal-orders-summary");
 
 btnConfirmarOrden.addEventListener("click", () => {
-  capaModal.classList.add("is-active");
+  if (carrito.length === 0) {
+    return;
+  } else {
+    capaModal.classList.add("is-active");
+  }
 
   let listaPostresHtml = "";
   let totalGeneral = 0;
@@ -211,8 +211,6 @@ const btnNewOrder = document.querySelector(".btn-start-new-order");
 btnNewOrder.addEventListener("click", () => {
   capaModal.classList.remove("is-active");
   carrito = [];
-  renderizarCarrito();
-  actualizarTotalCarrito();
 
   totalTarjetas = document.querySelectorAll(".product-card");
 
@@ -221,4 +219,6 @@ btnNewOrder.addEventListener("click", () => {
     tarjetas.querySelector(".add-to-cart-btn").classList.remove("inactive");
     tarjetas.querySelector(".quantity-value").innerText = "1";
   });
+
+  actualizarTotalCarrito();
 });
