@@ -276,6 +276,8 @@ body {
 
 .modal-overlay.is-active {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-content {
@@ -284,6 +286,7 @@ body {
   border-radius: 16px;
   width: 100%;
   max-width: 550px;
+  max-height: 85vh;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -312,6 +315,54 @@ body {
   border-radius: 12px;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+}
+
+.modal-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--rose-50);
+  padding-bottom: 12px;
+}
+
+.modal-thumbnail {
+  border-radius: 8px;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+.modal-item-details h3 {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.modal-item-details p {
+  display: flex;
+  gap: 8px;
+}
+
+.modal-quantity {
+  color: var(--color-primary-red);
+}
+
+.modal-price {
+  color: var(--rose-500);
+}
+
+.modal-subtotal {
+  font-weight: 600;
+}
+.modal-item-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.modal-item:last-child {
+  border-bottom: none;
 }
 
 @media (max-width: 768px) {

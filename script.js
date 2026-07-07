@@ -178,15 +178,16 @@ btnConfirmarOrden.addEventListener("click", () => {
 
     listaPostresHtml += `  
   <div class="modal-item">
-    <img src="${item.imagen}" alt="${item.name}" class="modal-thumbnail"/>
-    <div class="modal-item-details">
-      <h3>${item.name}</h3>
-      <p>
-        <span class="modal-quantity">${item.quantity}x</span>
-        <span class="modal-price">@ $${precioFormateado}</span>
-        <span class="modal-subtotal">$${subtotalFormateado}</span>
-      </p>
-    </div>
+    <div class="modal-item-left">
+      <img src="${item.imagen}" alt="${item.name}" class="modal-thumbnail"/>
+      <div class="modal-item-details">
+        <h3>${item.name}</h3>
+        <p>
+          <span class="modal-quantity">${item.quantity}x</span>
+          <span class="modal-price">@ ${precioFormateado}</span>
+        </p>
+      </div>
+    </div> <span class="modal-subtotal">$${subtotalFormateado}</span>
   </div>
 `;
   });
