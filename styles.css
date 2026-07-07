@@ -385,6 +385,12 @@ body {
   color: #260f08;
 }
 
+.cart-checkout-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 @media (max-width: 768px) {
   .products-section {
     grid-template-columns: repeat(1, 1fr);

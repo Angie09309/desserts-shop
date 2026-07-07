@@ -100,13 +100,16 @@ function actualizarTotalCarrito() {
 function renderizarCarrito() {
   const cartItems = document.querySelector(".cart-items-container");
   const cartInfo = document.querySelector(".empty-cart-state");
+  const cartTotal = document.querySelector(".cart-checkout-section");
 
   cartItems.innerHTML = "";
 
   if (carrito.length === 0) {
     cartInfo.style.display = "block";
+    cartTotal.style.display = "none";
   } else {
     cartInfo.style.display = "none";
+    cartTotal.style.display = "flex";
   }
 
   carrito.forEach((item) => {
