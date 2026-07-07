@@ -169,9 +169,12 @@ btnConfirmarOrden.addEventListener("click", () => {
   capaModal.classList.add("is-active");
 
   let listaPostresHtml = "";
+  let totalGeneral = 0;
 
   carrito.forEach((item) => {
     const precioFormateado = item.price.toLocaleString("es-CO");
+
+    totalGeneral += item.quantity * item.price;
     const subtotalFormateado = (item.quantity * item.price).toLocaleString(
       "es-CO",
     );
@@ -191,6 +194,15 @@ btnConfirmarOrden.addEventListener("click", () => {
   </div>
 `;
   });
+
+  const totalFinalFormateado = totalGeneral.toLocaleString("es-CO");
+
+  listaPostresHtml += `
+    <div class="modal-total-container">
+        <p>Order Total</p>
+        <strong>$ ${totalFinalFormateado}</strong>
+    </div>
+  `;
   resumenModal.innerHTML = listaPostresHtml;
 });
 
@@ -200,4 +212,13 @@ btnNewOrder.addEventListener("click", () => {
   capaModal.classList.remove("is-active");
   carrito = [];
   renderizarCarrito();
+  actualizarTotalCarrito();
+
+  totalTarjetas = document.querySelectorAll(".product-card");
+
+  totalTarjetas.forEach((tarjetas) => {
+    tarjetas.querySelector(".quantity-counter").classList.remove("active");
+    tarjetas.querySelector(".add-to-cart-btn").classList.remove("inactive");
+    tarjetas.querySelector(".quantity-value").innerText = "1";
+  });
 });
