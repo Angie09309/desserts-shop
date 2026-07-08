@@ -27,7 +27,7 @@
 
           <span>Waffle</span>
           <h2>Waffle with Berries</h2>
-          <p>6.50</p>
+          <p>6.500</p>
         </article>
 
         <article class="product-card">
@@ -45,7 +45,7 @@
 
           <span>Crème Brûlée</span>
           <h2>Vanilla Bean Crème Brûlée</h2>
-          <p>7.00</p>
+          <p>7.000</p>
         </article>
 
         <article class="product-card">
@@ -62,7 +62,7 @@
           </div>
           <span>Macaron</span>
           <h2>Macaron Mix of Five</h2>
-          <p>8.00</p>
+          <p>8.000</p>
         </article>
 
         <article class="product-card">
@@ -79,7 +79,7 @@
           </div>
           <span>Tiramisu</span>
           <h2>Classic Tiramisu</h2>
-          <p>5.50</p>
+          <p>5.500</p>
         </article>
 
         <article class="product-card">
@@ -96,7 +96,7 @@
           </div>
           <span>Baklava</span>
           <h2>Pistachio Baklava</h2>
-          <p>4.00</p>
+          <p>4.000</p>
         </article>
 
         <article class="product-card">
@@ -113,7 +113,7 @@
           </div>
           <span>Pie</span>
           <h2>Lemon Meringue Pie</h2>
-          <p>5.00</p>
+          <p>5.000</p>
         </article>
 
         <article class="product-card">
@@ -130,7 +130,7 @@
           </div>
           <span>Cake</span>
           <h2>Red Velvet Cake</h2>
-          <p>4.50</p>
+          <p>4.500</p>
         </article>
 
         <article class="product-card">
@@ -147,7 +147,7 @@
           </div>
           <span>Brownie</span>
           <h2>Salted Caramel Brownie</h2>
-          <p>4.50</p>
+          <p>4.500</p>
         </article>
 
         <article class="product-card">
@@ -164,15 +164,42 @@
           </div>
           <span>Panna Cotta</span>
           <h2>Vanilla Panna Cotta</h2>
-          <p>6.50</p>
+          <p>6.500</p>
         </article>
       </section>
 
       <section class="cart-section">
         <h2>Your Cart (<span class="cart-total-quantity">0</span>)</h2>
-        <img src="./assets/images/illustration-empty-cart.svg" alt="" />
-        <p>Your added items will appear here</p>
+
+        <div class="cart-items-container"></div>
+
+        <div class="empty-cart-state">
+          <img src="./assets/images/illustration-empty-cart.svg" alt="" />
+          <p>Your added items will appear here</p>
+        </div>
+
+        <div class="cart-checkout-section">
+          <div class="cart-total-container">
+            <p class="total-label">Order Total</p>
+            <span class="cart-total-price">$0.00</span>
+          </div>
+          <div class="carbon-neutral-container">
+            <img src="./assets/images/icon-carbon-neutral.svg" alt="" />
+            <p>This is a <strong>carbon-neutral</strong> delivery</p>
+          </div>
+          <button class="btn-confirm-order">Confirm Order</button>
+        </div>
       </section>
+
+      <div class="modal-overlay">
+        <div class="modal-content">
+          <img src="./assets/images/icon-order-confirmed.svg" alt="" />
+          <h1>Order Confirmed</h1>
+          <p>We hope you enjoy your food!</p>
+          <div class="modal-orders-summary"></div>
+          <button class="btn-start-new-order">Start New Order</button>
+        </div>
+      </div>
 
       <footer></footer>
     </main>
