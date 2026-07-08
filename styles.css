@@ -389,6 +389,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
+  display: none;
 }
 
 @media (max-width: 768px) {

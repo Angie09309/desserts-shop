@@ -148,7 +148,7 @@ function renderizarCarrito() {
       encabezados.forEach((texto) => {
         if (texto.innerText === nameCokie) {
           const tarjeta = texto.closest(".product-card");
-          tarjeta.querySelector(".quantity-value").innerText = "0";
+          tarjeta.querySelector(".quantity-value").innerText = "1";
           tarjeta.querySelector(".quantity-counter").classList.remove("active");
           tarjeta
             .querySelector(".add-to-cart-btn")
